@@ -4,14 +4,16 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native';
-import Simples from './componentes/Simples'
-import Parimpar from './componentes/Parimpar'
-import {Inverter,MegaSena} from './componentes/Multi'
+import Simples from './componentes/Simples';
+import Parimpar from './componentes/Parimpar';
+import {Inverter,MegaSena} from './componentes/Multi';
 import Padrao from './estilo/Padrao';
-import Contador from './componentes/Contador'
-import Plataformas from './componentes/Plataformas'
-import Validarprops from './componentes/Validarprops'
+import Contador from './componentes/Contador';
+import Plataformas from './componentes/Plataformas';
 import ValidarProps from './componentes/Validarprops';
+import Evento from './componentes/Evento'
+import {Avo} from './componentes/ComunicacaoDireta'
+
 
 
 const megasena = () => <MegaSena numeros={6} />
@@ -21,6 +23,7 @@ const simples = () => <Simples texto='Javan Souza' />
 const contador = () => <View style={Padrao.ex}><Contador/></View>
 const plataformas = () => <Plataformas/>
 const validarprops = () => <ValidarProps ano={2020}></ValidarProps>
+const avo = () => <Avo nome='Josuel' sobrenome='Souza'></Avo>
                      
 const Drawer = createDrawerNavigator();
  
@@ -28,6 +31,8 @@ export default function Menu() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Simples">
+       <Drawer.Screen name="Comunicação Direta" component={avo}/>  
+        <Drawer.Screen name="Evento">{props => <Evento></Evento>}</Drawer.Screen>
         <Drawer.Screen name="Validar Props" component={validarprops}/>
         <Drawer.Screen name="Plataforma" component={plataformas} />
         <Drawer.Screen name="Contador" component={contador} />
