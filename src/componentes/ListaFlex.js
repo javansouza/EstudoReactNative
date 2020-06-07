@@ -29,7 +29,11 @@ const itemEstilo = {
     heigth: 50,
     backgroundColor: '#DDD',
     borderWidth: 1,
-    borderColor: '#222'
+    borderColor: '#222',
+    alignItems: 'center',
+   // flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'flex-end',
 }
 
 export const Aluno = props => 
