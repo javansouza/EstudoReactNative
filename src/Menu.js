@@ -14,6 +14,7 @@ import ValidarProps from './componentes/Validarprops';
 import Evento from './componentes/Evento'
 import {Avo} from './componentes/ComunicacaoDireta'
 import TextoSincronizado from './componentes/ComunicacaoIndireta'
+import ListaFlex from './componentes/ListaFlex'
 
 
 
@@ -25,7 +26,7 @@ const contador = () => <View style={Padrao.ex}><Contador/></View>
 const plataformas = () => <Plataformas/>
 const validarprops = () => <ValidarProps ano={2020}></ValidarProps>
 const avo = () => <Avo nome='Josuel' sobrenome='Souza'></Avo>
-
+const listaflex = () => <ListaFlex></ListaFlex>
                      
 const Drawer = createDrawerNavigator();
  
@@ -33,6 +34,7 @@ export default function Menu() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Simples">
+        <Drawer.Screen name="Flex List" component={listaflex} />
         <Drawer.Screen name="Comunicação Indireta">{props => <TextoSincronizado></TextoSincronizado>}</Drawer.Screen>
         <Drawer.Screen name="Comunicação Direta" component={avo}/>  
         <Drawer.Screen name="Evento">{props => <Evento></Evento>}</Drawer.Screen>
